@@ -18,92 +18,109 @@ var generateComputerChoice = function() {
 // Task 2: Create a function that compares the userChoice and the computerChoice
 // to decide who won.
 var pickWinner = function(userChoice, computerChoice) {
-    console.log("user choice: " + userChoice);
-    console.log("computer choice: " + computerChoice);
-    // Task 2, Step 1: Create an "if/else if/else" statement that compares the
-    // userChoice and computerChoice under any possible game outcome.
+        console.log("user choice: " + userChoice);
+        console.log("computer choice: " + computerChoice);
+        // Task 2, Step 1: Create an "if/else if/else" statement that compares the
+        // userChoice and computerChoice under any possible game outcome.
 
-    if (userChoice === computerChoice) {
-        console.log("draw")
-    }
-    else if (userChoice === "rock" && computerChoice === "paper") {
+        if (userChoice === computerChoice) {
+            console.log("draw")
+        }
+        else if (userChoice === "rock" && computerChoice === "paper") {
 
-        console.log("you lose")
-    }
+            console.log("you lose")
+        }
 
- else if (userChoice === "rock" && computerChoice === "scissors") {
+        else if (userChoice === "rock" && computerChoice === "scissors") {
 
-        console.log("you win")
-    }
-
-
-
-
- else if (userChoice === "paper" && computerChoice === "scissors") {
-
-        console.log("you lose")
-    }
+            console.log("you win")
+        }
 
 
 
 
+        else if (userChoice === "paper" && computerChoice === "scissors") {
 
- else if (userChoice === "paper" && computerChoice === "rock") {
-
-        console.log("you win")
-        
-        
-        
-        
- else if (userChoice === "scissors" && computerChoice === "rock") {
-
-        console.log("you lose")
-        
-        
-        
-    }
-
-
-
-        
- else if (userChoice === "scissors" && computerChoice === "paper") {
-
-        console.log("you win")
-        
-        
-        
+            console.log("you lose")
+        }
 
 
 
 
-}
+
+        else if (userChoice === "paper" && computerChoice === "rock") {
+
+            console.log("you win")
 
 
-// Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
-
-// Task 5: Show the winner in HTML after the word "Winner:"
-};
-
-/* DOCUMENT READY: Everything inside this function will happen after
-   the user's browser has finished loading the webpage. */
-$(document).ready(function() {
-
-    // This line calls the `generateComputerChoice` function and assigns its
-    // return value to the variable `computerChoice`.
-    var computerChoice = generateComputerChoice();
-
-    // This line sets `userChoice` variable to 'rock'. This value can be changed
-    // manually when testing in the console.
-    var userChoice = "rock";
-    // Task 3: To be completed AFTER this game functions in the console.
-    // Set `userChoice` to "null" and create click handlers that changes the
-    // value of userChoice based on the item the user clicks on the HTML page.
-
-    // This line calls the `pickWinner` function with the `userChoice` variable
-    // and the `computerChoice` variable.
-    pickWinner(userChoice, computerChoice);
-    //Final Task: comment out the pickWinner function on the line above and place it within your click functions created in Task 3.
-    //this is done so the computer does not pick its throw until the user has also done so.
 
 
-});
+            else if (userChoice === "scissors" && computerChoice === "rock") {
+
+                console.log("you lose")
+
+
+
+            }
+
+
+
+
+            else if (userChoice === "scissors" && computerChoice === "paper") {
+
+                console.log("you win")
+
+
+
+
+
+
+
+            }
+
+
+            // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
+            $("#computer-choice").html(computerChoice);
+
+
+            // Task 5: Show the winner in HTML after the word "Winner:"
+            $("#Winner").html(Winner);
+
+
+        };
+
+        /* DOCUMENT READY: Everything inside this function will happen after
+           the user's browser has finished loading the webpage. */
+        $(document).ready(function() {
+
+            // This line calls the `generateComputerChoice` function and assigns its
+            // return value to the variable `computerChoice`.
+            var computerChoice = generateComputerChoice();
+
+            // This line sets `userChoice` variable to 'rock'. This value can be changed
+            // manually when testing in the console.
+            var userChoice = null;
+            // Task 3: To be completed AFTER this game functions in the console.
+            // Set `userChoice` to "null" and create click handlers that changes the
+            // value of userChoice based on the item the user clicks on the HTML page.
+
+            $(".choice").click(function(e) {
+
+                var element = e.target;
+                
+             console.log(element.id);
+
+            })
+
+
+            // This line calls the `pickWinner` function with the `userChoice` variable
+            // and the `computerChoice` variable.
+
+            pickWinner(userChoice, computerChoice);
+
+
+            //Final Task: comment out the pickWinner function on the line above and place it within your click functions created in Task 3.
+            //this is done so the computer does not pick its throw until the user has also done so.
+
+
+        });
